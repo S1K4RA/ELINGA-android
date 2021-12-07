@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "799771734199",
+    "project_id": "elinga-9c7ae",
+    "storage_bucket": "elinga-9c7ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799771734199:android:80496dbb76ed4d9b27dd32",
+        "android_client_info": {
+          "package_name": "com.kelompok9.elinga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799771734199-1etps7u4e70bi343ncpp09tskoij4rt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEmEXmC6roDvh07_ul3aql7JEu3UHr5PA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "799771734199-1etps7u4e70bi343ncpp09tskoij4rt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
