@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Elinga</string>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+=======
+>>>>>>> Stashed changes
 
     <string name="monday">M</string>
     <string name="tuesday">T</string>
@@ -8,4 +15,8 @@
     <string name="friday">F</string>
     <string name="saturday">S</string>
     <string name="sunday">S</string>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7cd26b4211e281fda0b21d6df4f75f2541180f36
+>>>>>>> Stashed changes
 </resources>

@@ -1,5 +1,6 @@
 package com.kelompok9.elinga
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Context;
@@ -14,11 +15,27 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+<<<<<<< Updated upstream
 
 import java.util.Calendar;
 import com.google.firebase.firestore.FirebaseFirestore
 
 
+=======
+
+<<<<<<< HEAD
+
+
+
+class MainActivity : AppCompatActivity() {
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var db : FirebaseFirestore
+    }
+=======
+import java.util.Calendar;
+import com.google.firebase.firestore.FirebaseFirestore
+>>>>>>> Stashed changes
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,12 +44,25 @@ class MainActivity : AppCompatActivity() {
     lateinit var chosenDateMonth : Int
     lateinit var chosenDateYear : Int
 
+
+class MainActivity : AppCompatActivity() {
+    lateinit var db : FirebaseFirestore
+    lateinit var chosenDateDay : Int
+    lateinit var chosenDateMonth : Int
+    lateinit var chosenDateYear : Int
+>>>>>>> 7cd26b4211e281fda0b21d6df4f75f2541180f36
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         db = FirebaseFirestore.getInstance()
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
         // calendar get element
         var weekOneLayout : LinearLayout = findViewById(R.id.calendar_week_1)
         var weekTwoLayout : LinearLayout = findViewById(R.id.calendar_week_2)
@@ -179,5 +209,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun onDayClick(v: View?) {
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> 7cd26b4211e281fda0b21d6df4f75f2541180f36
+>>>>>>> Stashed changes
     }
 }
