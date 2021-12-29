@@ -15,15 +15,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-<<<<<<< Updated upstream
+
 
 import java.util.Calendar;
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-=======
-
-<<<<<<< HEAD
 
 
 
