@@ -3,10 +3,10 @@
     <style name="Theme.Elinga" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryVariant">@color/cream</item>
+        <item name="colorPrimaryVariant">@color/sakura_light</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/cream</item>
+        <item name="colorSecondary">@color/sakura_light</item>
         <item name="colorSecondaryVariant">@color/sakura</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
