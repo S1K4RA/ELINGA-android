@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
-                android:inputType="numberSigned" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:inputType="numberSigned" />
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -145,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:inputType="numberSigned" />
+                android:inputType="number|numberDecimal" />
 
             <TextView
                 android:id="@+id/textView3"

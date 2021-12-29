@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,16 +21,10 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class KaloriDailyAdd : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -41,9 +38,30 @@ class KaloriDailyAdd : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val receiveBundle : Bundle? = arguments
+
+        var _calBMR : TextView = view.findViewById(R.id.textCaloriesBMR)
+        var _calNeed : TextView = view.findViewById(R.id.textCaloriesNeeded)
+
+        var _btnCalSubmit : Button = view.findViewById(R.id.btnaddCalSubmit)
+
+        if (receiveBundle != null) {
+            _calBMR.text = receiveBundle.getString("value")
+            _calNeed.text = (total?.minus(receiveBundle.getString("value").toString().toUInt())).toString()
+        }
+
+
+        _btnCalSubmit.setOnClickListener {
+            var _inputCal : EditText = view.findViewById(R.id.addCalInput)
+
+            _inputCal.text.toString().toInt()
+
+        }
+
     }
 
     companion object {
+        var total : UByte? = null
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

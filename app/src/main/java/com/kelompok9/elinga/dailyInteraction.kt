@@ -57,9 +57,7 @@ class dailyInteraction : Fragment() {
 
         var _btnKalori : Button = view.findViewById(R.id.btnKalori)
 
-
         _btnKalori.setOnClickListener {
-
             var calory = MainActivity.db.collection("BMR").document("Calories_Data").get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
@@ -72,6 +70,7 @@ class dailyInteraction : Fragment() {
                             document.data?.get("value").toString().toInt()
                         )
                         caloryInit = data
+
                     } else {
                         Log.d(TAG, "No such document")
                     }
@@ -79,27 +78,30 @@ class dailyInteraction : Fragment() {
                 .addOnFailureListener { exception ->
                     Log.d(TAG, "get failed with ", exception)
                 }
+                .addOnCompleteListener {
+                    if (caloryInit != null) { // kalo gk kosong
+                        val Kalori_DailyAdd_Frag = KaloriDailyAdd()
 
-            println(caloryInit)
-            if (caloryInit != null) { // kalo gk kosong
-                val Kalori_DailyAdd_Frag = KaloriDailyAdd()
-                Kalori_DailyAdd_Frag.arguments = receiveBundle
-                val mFragmentManager = parentFragmentManager
-                mFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragmentContainerView, Kalori_DailyAdd_Frag, dailyInteraction::class.java.simpleName)
-                    addToBackStack(null)
-                    commit()
+                        var dataBundle = Bundle()
+                        dataBundle.putInt("value", caloryInit!!.value)
+                        Kalori_DailyAdd_Frag.arguments = receiveBundle
+                        val mFragmentManager = parentFragmentManager
+                        mFragmentManager.beginTransaction().apply {
+                            replace(R.id.fragmentContainerView, Kalori_DailyAdd_Frag, dailyInteraction::class.java.simpleName)
+                            addToBackStack(null)
+                            commit()
+                        }
+                    } else { // kalo kosong
+                        val Kalori_Frag = Kalori_interaction()
+                        Kalori_Frag.arguments = receiveBundle
+                        val mFragmentManager = parentFragmentManager
+                        mFragmentManager.beginTransaction().apply {
+                            replace(R.id.fragmentContainerView, Kalori_Frag, dailyInteraction::class.java.simpleName)
+                            addToBackStack(null)
+                            commit()
+                        }
+                    }
                 }
-                } else { // kalo kosong
-                val Kalori_Frag = Kalori_interaction()
-                Kalori_Frag.arguments = receiveBundle
-                val mFragmentManager = parentFragmentManager
-                mFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragmentContainerView, Kalori_Frag, dailyInteraction::class.java.simpleName)
-                    addToBackStack(null)
-                    commit()
-                }
-            }
 
         }
 
