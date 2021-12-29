@@ -1,6 +1,7 @@
 package com.kelompok9.elinga
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
@@ -27,6 +28,6 @@ class CalendarAdapter(
     }
 
     interface OnItemListener {
-        fun onItemClick(position: Int, dayText: String?)
+        fun onItemClick(position: Int, dayText: String?, view: View)
     }
 }

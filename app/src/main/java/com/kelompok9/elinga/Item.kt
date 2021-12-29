@@ -3,20 +3,18 @@ package com.kelompok9.elinga
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
-data class Datalog (
-    var value:Int,
-    var category:String,
-    var date: Long
+data class Item (
+    var description:String,
+    var category:Int,
+    var date: Long,
+    var hour: Long,
 )
 
 class adapterLog(
-    private val listLog: ArrayList<Datalog>
+    private val listLog: ArrayList<Item>
 ) : RecyclerView.Adapter<adapterLog.ListViewHolder>()
 {
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -18,5 +18,14 @@
         android:id="@+id/home2"
         android:name="com.kelompok9.elinga.Home"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_dailyInteraction"
+            app:destination="@id/dailyInteraction" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyInteraction"
+        android:name="com.kelompok9.elinga.dailyInteraction"
+        android:label="fragment_daily_interaction"
+        tools:layout="@layout/fragment_daily_interaction" />
 </navigation>

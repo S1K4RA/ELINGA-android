@@ -9,7 +9,7 @@ class CalendarViewHolder(itemView: View, onItemListener: CalendarAdapter.OnItemL
     val dayOfMonth: TextView
     private val onItemListener: CalendarAdapter.OnItemListener
     override fun onClick(view: View) {
-        onItemListener.onItemClick(adapterPosition, dayOfMonth.text as String)
+        onItemListener.onItemClick(adapterPosition, dayOfMonth.text as String,view)
     }
 
     init {

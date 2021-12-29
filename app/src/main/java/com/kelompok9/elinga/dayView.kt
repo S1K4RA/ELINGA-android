@@ -1,6 +1,5 @@
 package com.kelompok9.elinga
 
-import android.app.DatePickerDialog
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,16 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 
 class dayView : AppCompatActivity() {
     companion object {
-        var log_arr = arrayListOf<Datalog>()
+        var log_arr = arrayListOf<Item>()
         lateinit var db: FirebaseFirestore
 
     }
     var sorter = ""
-    var logArray = arrayListOf<Datalog>()
+    var logArray = arrayListOf<Item>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_day_view)
@@ -59,7 +57,7 @@ class dayView : AppCompatActivity() {
                 Toast.makeText(this, "Data Loaded", Toast.LENGTH_SHORT).show()
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
-                    var data = Datalog(
+                    var data = Item(
                         document.data["value"].toString().toInt(),
                         document.data["category"].toString(),
                         document.data["date"].toString().toLong()
@@ -68,7 +66,7 @@ class dayView : AppCompatActivity() {
                 }
                 logArray.sortedByDescending { it.date }
 
-                var lArr = arrayListOf<Datalog>()
+                var lArr = arrayListOf<Item>()
                 lArr.clear()
                 if (sorter != "") {
                     for (item in logArray.indices) {

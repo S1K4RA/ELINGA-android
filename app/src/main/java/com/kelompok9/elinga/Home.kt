@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
@@ -99,8 +100,9 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         setMonthView()
     }
 
-    override fun onItemClick(position: Int, dayText: String?) {
+    override fun onItemClick(position: Int, dayText: String?,view: View) {
         if (dayText != "") {
+            Navigation.findNavController(view).navigate(R.id.dailyInteraction)
             val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
