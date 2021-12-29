@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +34,17 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
 
         selectedDate = LocalDate.now()
         setMonthView()
+
+        var _btnPrev : Button = view.findViewById(R.id.btnPrev)
+        var _btnNext : Button = view.findViewById(R.id.btnNext)
+
+        _btnPrev.setOnClickListener {
+            previousMonthAction(view)
+        }
+        _btnNext.setOnClickListener {
+            nextMonthAction(view)
+        }
+
     }
     private fun setMonthView() {
         monthYearText.text = monthYearFromDate(selectedDate)
@@ -60,27 +72,27 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         return daysInMonthArray
     }
 
-        private fun monthYearFromDate(date: LocalDate?): String {
-            val formatter = DateTimeFormatter.ofPattern("MMMM yyyy")
-            return date!!.format(formatter)
-        }
+    private fun monthYearFromDate(date: LocalDate?): String {
+        val formatter = DateTimeFormatter.ofPattern("MMMM yyyy")
+        return date!!.format(formatter)
+    }
 
-        fun previousMonthAction(view: View?) {
-            selectedDate = selectedDate.minusMonths(1)
-            setMonthView()
-        }
+    fun previousMonthAction(view: View?) {
+        selectedDate = selectedDate.minusMonths(1)
+        setMonthView()
+    }
 
-        fun nextMonthAction(view: View?) {
-            selectedDate = selectedDate.plusMonths(1)
-            setMonthView()
-        }
+    fun nextMonthAction(view: View?) {
+        selectedDate = selectedDate.plusMonths(1)
+        setMonthView()
+    }
 
-        override fun onItemClick(position: Int, dayText: String?) {
-            if (dayText != "") {
-                val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-            }
+    override fun onItemClick(position: Int, dayText: String?) {
+        if (dayText != "") {
+            val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
+    }
 
 
 }

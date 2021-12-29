@@ -39,12 +39,9 @@ class MainActivity : AppCompatActivity() {
         lateinit var db : FirebaseFirestore
     }
 
-
-    private lateinit var monthYearText: TextView
-    private lateinit var calendarRecyclerView: RecyclerView
-    private lateinit var selectedDate: LocalDate
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         db = FirebaseFirestore.getInstance()
     }

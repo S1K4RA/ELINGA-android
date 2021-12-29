@@ -23,7 +23,7 @@
             android:textColor="@color/sakura_light"
             android:background="@color/transparent"
             android:textStyle="bold"
-            android:onClick="previousMonthAction"
+            android:id="@+id/btnPrev"
             android:textSize="20sp"/>
 
         <TextView
@@ -44,7 +44,7 @@
             android:textColor="@color/sakura_light"
             android:background="@color/transparent"
             android:textStyle="bold"
-            android:onClick="nextMonthAction"
+            android:id="@+id/btnNext"
             android:textSize="20sp"/>
 
     </LinearLayout>
