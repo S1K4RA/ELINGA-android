@@ -19,13 +19,15 @@ import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
-import java.util.ArrayList
+import java.time.format.TextStyle
+import java.util.*
+import com.kelompok9.elinga.CalendarUtils.selectedDate
 
 
 class Home : Fragment(), CalendarAdapter.OnItemListener {
     private lateinit var monthYearText: TextView
     private lateinit var calendarRecyclerView: RecyclerView
-    private lateinit var selectedDate: LocalDate
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -76,7 +78,7 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         val daysInMonthArray = ArrayList<String>()
         val yearMonth = YearMonth.from(date)
         val daysInMonth = yearMonth.lengthOfMonth()
-        val firstOfMonth = selectedDate.withDayOfMonth(1)
+        val firstOfMonth = selectedDate!!.withDayOfMonth(1)
         val dayOfWeek = firstOfMonth.dayOfWeek.value
         for (i in 1..42) {
             if (i <= dayOfWeek || i > daysInMonth + dayOfWeek) {
@@ -94,18 +96,35 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
     }
 
     fun previousMonthAction(view: View?) {
-        selectedDate = selectedDate.minusMonths(1)
+        selectedDate = selectedDate!!.minusMonths(1)
         setMonthView()
     }
 
     fun nextMonthAction(view: View?) {
-        selectedDate = selectedDate.plusMonths(1)
+        selectedDate = selectedDate!!.plusMonths(1)
         setMonthView()
     }
 
     override fun onItemClick(position: Int, dayText: String?,view: View) {
         if (dayText != "") {
-            Navigation.findNavController(view).navigate(R.id.dailyInteraction)
+            var bundle = Bundle()
+
+            var bulan = CalendarUtils.monthYearFromDate(selectedDate!!)
+            var hari = selectedDate!!.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault())
+
+            bundle.putString("bulan", bulan)
+            bundle.putString("hari", hari)
+
+            val dailyInteraction_Frag = dailyInteraction()
+            dailyInteraction_Frag.arguments = bundle
+            //Navigation.findNavController(view).navigate(R.id.dailyInteraction)
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainerView, dailyInteraction_Frag, dailyInteraction::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
+
             val message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }

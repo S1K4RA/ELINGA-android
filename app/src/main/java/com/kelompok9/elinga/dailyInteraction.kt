@@ -1,10 +1,12 @@
 package com.kelompok9.elinga
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +33,18 @@ class dailyInteraction : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_daily_interaction, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val receiveBundle : Bundle? = arguments
+        val change_test : TextView = view.findViewById(R.id.daily_date)
+        val change_day : TextView = view.findViewById(R.id.dayOfWeek)
+
+        Log.d("bundle", receiveBundle!!.get("date").toString())
+        change_test.text = receiveBundle.getString("bulan")
+        change_day.text = receiveBundle.getString("hari")
     }
 
     companion object {

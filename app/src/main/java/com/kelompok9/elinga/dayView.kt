@@ -58,8 +58,8 @@ class dayView : AppCompatActivity() {
                 for (document in result) {
                     Log.d(ContentValues.TAG, "${document.id} => ${document.data}")
                     var data = Item(
-                        document.data["value"].toString().toInt(),
-                        document.data["category"].toString(),
+                        document.data["value"].toString(),
+                        document.data["category"].toString().toInt(),
                         document.data["date"].toString().toLong()
                     )
                     logArray.add(data)

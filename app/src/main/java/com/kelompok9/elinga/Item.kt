@@ -10,7 +10,6 @@ data class Item (
     var description:String,
     var category:Int,
     var date: Long,
-    var hour: Long,
 )
 
 class adapterLog(
