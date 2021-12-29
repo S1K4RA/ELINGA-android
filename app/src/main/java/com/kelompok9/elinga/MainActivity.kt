@@ -21,33 +21,15 @@ import java.util.Calendar;
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-
-
+lateinit var chosenDateDay : Int
+lateinit var chosenDateMonth : Int
+lateinit var chosenDateYear : Int
 
 class MainActivity : AppCompatActivity() {
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var db : FirebaseFirestore
     }
-=======
-import java.util.Calendar;
-import com.google.firebase.firestore.FirebaseFirestore
->>>>>>> Stashed changes
-
-
-class MainActivity : AppCompatActivity() {
-    lateinit var db : FirebaseFirestore
-    lateinit var chosenDateDay : Int
-    lateinit var chosenDateMonth : Int
-    lateinit var chosenDateYear : Int
-
-
-class MainActivity : AppCompatActivity() {
-    lateinit var db : FirebaseFirestore
-    lateinit var chosenDateDay : Int
-    lateinit var chosenDateMonth : Int
-    lateinit var chosenDateYear : Int
->>>>>>> 7cd26b4211e281fda0b21d6df4f75f2541180f36
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,11 +37,6 @@ class MainActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
         // calendar get element
         var weekOneLayout : LinearLayout = findViewById(R.id.calendar_week_1)
         var weekTwoLayout : LinearLayout = findViewById(R.id.calendar_week_2)
@@ -206,9 +183,5 @@ class MainActivity : AppCompatActivity() {
 
     private fun onDayClick(v: View?) {
 
-<<<<<<< Updated upstream
-=======
->>>>>>> 7cd26b4211e281fda0b21d6df4f75f2541180f36
->>>>>>> Stashed changes
     }
 }
