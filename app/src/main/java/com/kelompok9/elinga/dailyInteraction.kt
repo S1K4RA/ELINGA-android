@@ -43,7 +43,8 @@ class dailyInteraction : Fragment() {
         val change_day : TextView = view.findViewById(R.id.dayOfWeek)
 
         Log.d("bundle", receiveBundle!!.get("date").toString())
-        change_test.text = receiveBundle.getString("bulan")
+        var disp_atas = receiveBundle.getString("tanggal") + " " + receiveBundle.getString("bulan") + " " + receiveBundle.getString("tahun")
+        change_test.text = disp_atas
         change_day.text = receiveBundle.getString("hari")
     }
 

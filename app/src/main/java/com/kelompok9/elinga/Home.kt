@@ -1,10 +1,12 @@
 package com.kelompok9.elinga
 
 import android.app.NotificationManager
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -109,11 +111,32 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         if (dayText != "") {
             var bundle = Bundle()
 
-            var bulan = CalendarUtils.monthYearFromDate(selectedDate!!)
-            var hari = selectedDate!!.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault())
+            //var bulan = CalendarUtils.monthYearFromDate(selectedDate!!)
+            // var hari = selectedDate!!.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault())
+
+            // gabisa
+            /*if (dayText != null) {
+                selectedDate.dayOfMonth = dayText.toInt()
+            }*/
+            Log.e(TAG,selectedDate!!.dayOfMonth.toString())
+
+            var pickedDate : LocalDate = LocalDate.of(selectedDate!!.year, selectedDate!!.month,dayText!!.toInt())
+
+            var bulan = pickedDate.month.toString()
+            var hari = pickedDate.dayOfWeek.getDisplayName(TextStyle.FULL,Locale.getDefault())
+            var tanggal = pickedDate.dayOfMonth.toString()
+            var tahun = pickedDate.year.toString()
+
+            Log.e(TAG,pickedDate.month.toString())
+            Log.e(TAG,pickedDate.dayOfWeek.getDisplayName(TextStyle.FULL,Locale.getDefault()))
+            Log.e(TAG,pickedDate.dayOfMonth.toString())
+            Log.e(TAG,pickedDate.year.toString())
+
 
             bundle.putString("bulan", bulan)
             bundle.putString("hari", hari)
+            bundle.putString("tanggal",tanggal)
+            bundle.putString("tahun",tahun)
 
             val dailyInteraction_Frag = dailyInteraction()
             dailyInteraction_Frag.arguments = bundle
