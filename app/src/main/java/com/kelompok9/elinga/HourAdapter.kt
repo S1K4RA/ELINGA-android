@@ -29,10 +29,9 @@ class HourAdapter (
 
         holder._timeTV.text = event.time.toString()
         holder._events.text = event.name
-        if (event.name != "") {
-            holder._btnAdd.isEnabled = false
+        /*if (event.name != "") {
             holder._btnAdd.visibility = View.GONE
-        }
+        }*/
         holder._btnAdd.setOnClickListener{
             Toast.makeText(holder.itemView.context, "add", Toast.LENGTH_SHORT).show()
             var date = dailyInteraction.change_date.text.toString()

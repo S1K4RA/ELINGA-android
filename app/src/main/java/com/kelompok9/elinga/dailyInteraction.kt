@@ -30,6 +30,7 @@ data class BMR (
 )
 
 class dailyInteraction : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +43,7 @@ class dailyInteraction : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val receiveBundle : Bundle? = arguments
-        val change_date : TextView = view.findViewById(R.id.daily_date)
+        change_date = view.findViewById(R.id.daily_date)
         val change_day : TextView = view.findViewById(R.id.dayOfWeek)
 
         val hour_list : RecyclerView = requireView().findViewById(R.id.dailyInteractionRV)
@@ -54,6 +55,7 @@ class dailyInteraction : Fragment() {
         change_day.text = receiveBundle.getString("hari")
 
         setView(hour_list, arr_event)
+<<<<<<< Updated upstream
 
         var _btnKalori : Button = view.findViewById(R.id.btnKalori)
 
@@ -105,6 +107,9 @@ class dailyInteraction : Fragment() {
 
         }
 
+=======
+        loaddataDatabase(arr_event, hour_list)
+>>>>>>> Stashed changes
     }
 
     private fun setTime(adapter : ArrayList<Event>){
@@ -120,11 +125,34 @@ class dailyInteraction : Fragment() {
     }
 
     private fun setView(rv : RecyclerView, adapter: ArrayList<Event>) {
-        println("Please work")
         setTime(adapter)
         val layoutManager : RecyclerView.LayoutManager = GridLayoutManager(context, 1)
         rv.layoutManager = layoutManager
         rv.adapter = HourAdapter(adapter)
+
+    }
+
+    private fun loaddataDatabase (adapter: ArrayList<Event>, rv: RecyclerView) {
+        var date = change_date.text.toString()
+        MainActivity.db.collection(date).get().addOnSuccessListener {
+            for (event in it) {
+                for (items in adapter){
+                    Log.d("Database", items.time.hour.toString())
+                    var db_time = event.data.get("time") as Map<*, *>
+                    Log.d("Database", db_time.get("hour").toString())
+                    if (db_time.get("hour").toString() == items.time.hour.toString()) {
+                        items.name = event.data.get("name").toString()
+                    }
+                }
+
+            }
+            rv.layoutManager = GridLayoutManager(context,1)
+            rv.adapter = HourAdapter(adapter)
+        }
+    }
+
+    companion object {
+        lateinit var change_date : TextView
     }
 
     companion object {
