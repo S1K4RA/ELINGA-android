@@ -1,6 +1,10 @@
 package com.kelompok9.elinga
 
+import android.app.NotificationManager
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +31,6 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // Init
         calendarRecyclerView = view.findViewById(R.id.calendarRecyclerView)
         monthYearText = view.findViewById(R.id.monthYearTV)
@@ -37,12 +40,21 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
 
         var _btnPrev : Button = view.findViewById(R.id.btnPrev)
         var _btnNext : Button = view.findViewById(R.id.btnNext)
+        val _dndON : Button = view.findViewById(R.id.dndON)
+        val _dndOFF : Button = view.findViewById(R.id.dndOFF)
 
         _btnPrev.setOnClickListener {
             previousMonthAction(view)
         }
         _btnNext.setOnClickListener {
             nextMonthAction(view)
+        }
+
+        _dndON.setOnClickListener {
+            turnon_DND()
+        }
+        _dndOFF.setOnClickListener {
+            turnoff_DND()
         }
 
     }
@@ -94,5 +106,38 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         }
     }
 
+    private fun turnon_DND() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (MainActivity.notificationManager.isNotificationPolicyAccessGranted) {
+                //turn on dnd
+                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE)
+            } else {
+                //request permission
+                Toast.makeText(context, "Please give us access", Toast.LENGTH_SHORT).show()
+                val dndIntent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+                startActivity(dndIntent)
+            }
+
+        } else {
+            Toast.makeText(context, "Your device does not support DND", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun turnoff_DND() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (MainActivity.notificationManager.isNotificationPolicyAccessGranted) {
+                //turn on dnd
+                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL)
+            } else {
+                //request permission
+                Toast.makeText(context, "Please give us access", Toast.LENGTH_SHORT).show()
+                val dndIntent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+                startActivity(dndIntent)
+            }
+
+        } else {
+            Toast.makeText(context, "Your device does not support DND", Toast.LENGTH_SHORT).show()
+        }
+    }
 
 }
