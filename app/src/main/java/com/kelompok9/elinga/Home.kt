@@ -5,12 +5,12 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.Navigation
@@ -20,6 +20,7 @@ import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 import java.util.ArrayList
+
 
 class Home : Fragment(), CalendarAdapter.OnItemListener {
     private lateinit var monthYearText: TextView
@@ -39,10 +40,12 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         selectedDate = LocalDate.now()
         setMonthView()
 
-        var _btnPrev : Button = view.findViewById(R.id.btnPrev)
-        var _btnNext : Button = view.findViewById(R.id.btnNext)
+
         val _dndON : Button = view.findViewById(R.id.dndON)
         val _dndOFF : Button = view.findViewById(R.id.dndOFF)
+        val _btnPrev : ImageButton = view.findViewById(R.id.btnPrev)
+        val _btnNext : ImageButton = view.findViewById(R.id.btnNext)
+
 
         _btnPrev.setOnClickListener {
             previousMonthAction(view)
@@ -141,5 +144,4 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
             Toast.makeText(context, "Your device does not support DND", Toast.LENGTH_SHORT).show()
         }
     }
-
 }
