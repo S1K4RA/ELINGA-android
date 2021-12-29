@@ -11,14 +11,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalTime
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-
 class dailyInteraction : Fragment() {
+<<<<<<< Updated upstream
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -33,6 +27,9 @@ class dailyInteraction : Fragment() {
     }
 
     override fun onCreateView(
+=======
+        override fun onCreateView(
+>>>>>>> Stashed changes
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -78,6 +75,7 @@ class dailyInteraction : Fragment() {
         rv.adapter = HourAdapter(adapter)
     }
 
+<<<<<<< Updated upstream
     companion object {
         lateinit var change_date : TextView
         /**
@@ -98,4 +96,6 @@ class dailyInteraction : Fragment() {
                 }
             }
     }
+=======
+>>>>>>> Stashed changes
 }

@@ -3,17 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/logoScreen">
-
-    <fragment
-        android:id="@+id/logoScreen"
-        android:name="com.kelompok9.elinga.LogoScreen"
-        android:label="fragment_logo_screen"
-        tools:layout="@layout/fragment_logo_screen" >
-        <action
-            android:id="@+id/action_logoScreen_to_home2"
-            app:destination="@id/home2" />
-    </fragment>
+    app:startDestination="@id/home2">
     <fragment
         android:id="@+id/home2"
         android:name="com.kelompok9.elinga.Home"
