@@ -27,5 +27,14 @@
         android:id="@+id/dailyInteraction"
         android:name="com.kelompok9.elinga.dailyInteraction"
         android:label="fragment_daily_interaction"
-        tools:layout="@layout/fragment_daily_interaction" />
+        tools:layout="@layout/fragment_daily_interaction" >
+        <action
+            android:id="@+id/action_dailyInteraction_to_kalori_interaction"
+            app:destination="@id/kalori_interaction" />
+    </fragment>
+    <fragment
+        android:id="@+id/kalori_interaction"
+        android:name="com.kelompok9.elinga.Kalori_interaction"
+        android:label="fragment_kalori_interaction"
+        tools:layout="@layout/fragment_kalori_interaction" />
 </navigation>

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:text="29 December 2021"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/dayOfWeek"
@@ -25,14 +25,25 @@
         android:id="@+id/dayOfWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="16dp"
         android:text="Monday"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/dailyInteractionRV"
+        app:layout_constraintBottom_toTopOf="@id/btnKalori"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/daily_date" />
+
+    <Button
+        android:id="@+id/btnKalori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="KALORIMETER"
+        app:layout_constraintBottom_toTopOf="@+id/dailyInteractionRV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayOfWeek" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dailyInteractionRV"
@@ -40,6 +51,6 @@
         android:layout_height="0dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dayOfWeek" />
+        app:layout_constraintTop_toBottomOf="@id/btnKalori" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

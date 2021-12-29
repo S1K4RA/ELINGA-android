@@ -7,4 +7,5 @@
     <color name="white">#FFFBFBFD</color>
     <color name="calendar_number">#424A56</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="gray_background">#f2f4f4</color>
 </resources>

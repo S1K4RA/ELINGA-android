@@ -1,14 +1,17 @@
 package com.kelompok9.elinga
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.ktx.toObject
 import java.time.LocalTime
 
 
@@ -17,6 +20,14 @@ import java.time.LocalTime
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
+data class BMR (
+    var age : Int,
+    var isMale : Boolean,
+    var height : Int,
+    var Weight : Int,
+    var value : Int
+
+)
 
 class dailyInteraction : Fragment() {
     // TODO: Rename and change types of parameters
@@ -56,6 +67,55 @@ class dailyInteraction : Fragment() {
         change_day.text = receiveBundle.getString("hari")
 
         setView(hour_list, arr_event)
+
+        var _btnKalori : Button = view.findViewById(R.id.btnKalori)
+
+
+        _btnKalori.setOnClickListener {
+
+            var calory = MainActivity.db.collection("BMR").document("Calories_Data").get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                        var data = BMR (
+                            document.data?.get("age").toString().toInt(),
+                            document.data?.get("male").toString().toBooleanStrict(),
+                            document.data?.get("height").toString().toInt(),
+                            document.data?.get("weight").toString().toInt(),
+                            document.data?.get("value").toString().toInt()
+                        )
+                        caloryInit = data
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "get failed with ", exception)
+                }
+
+            println(caloryInit)
+            if (caloryInit != null) { // kalo gk kosong
+                val Kalori_DailyAdd_Frag = KaloriDailyAdd()
+                Kalori_DailyAdd_Frag.arguments = receiveBundle
+                val mFragmentManager = parentFragmentManager
+                mFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragmentContainerView, Kalori_DailyAdd_Frag, dailyInteraction::class.java.simpleName)
+                    addToBackStack(null)
+                    commit()
+                }
+                } else { // kalo kosong
+                val Kalori_Frag = Kalori_interaction()
+                Kalori_Frag.arguments = receiveBundle
+                val mFragmentManager = parentFragmentManager
+                mFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragmentContainerView, Kalori_Frag, dailyInteraction::class.java.simpleName)
+                    addToBackStack(null)
+                    commit()
+                }
+            }
+
+        }
+
     }
 
     private fun setTime(adapter : ArrayList<Event>){
@@ -80,6 +140,7 @@ class dailyInteraction : Fragment() {
 
     companion object {
         lateinit var change_date : TextView
+        var caloryInit : BMR? = null
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
