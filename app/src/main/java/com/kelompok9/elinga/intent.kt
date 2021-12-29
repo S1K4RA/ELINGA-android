@@ -5,7 +5,7 @@ import android.content.Intent
 class intent {
     val url = "https://meet.google.com/qut-twpj-jpx"
 
-    val eIntent = Intent(Intent.ACTION_VIEW)
+   /* val eIntent = Intent(Intent.ACTION_VIEW)
     eIntent.setData(Uri.parse(url))
-    startActivity(eIntent)
+    startActivity(eIntent)*/
 }
