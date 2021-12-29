@@ -1,5 +1,6 @@
 package com.kelompok9.elinga
 
+import android.annotation.SuppressLint
 import android.app.NotificationManager
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -25,7 +26,7 @@ import java.time.format.TextStyle
 import java.util.*
 import com.kelompok9.elinga.CalendarUtils.selectedDate
 
-
+@SuppressLint("ObsoleteSdkInt")
 class Home : Fragment(), CalendarAdapter.OnItemListener {
     private lateinit var monthYearText: TextView
     private lateinit var calendarRecyclerView: RecyclerView
