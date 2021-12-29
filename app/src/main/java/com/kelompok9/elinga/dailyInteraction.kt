@@ -23,6 +23,7 @@ class dailyInteraction : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -43,7 +44,7 @@ class dailyInteraction : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val receiveBundle : Bundle? = arguments
-        val change_date : TextView = view.findViewById(R.id.daily_date)
+        change_date = view.findViewById(R.id.daily_date)
         val change_day : TextView = view.findViewById(R.id.dayOfWeek)
 
         val hour_list : RecyclerView = requireView().findViewById(R.id.dailyInteractionRV)
@@ -78,6 +79,7 @@ class dailyInteraction : Fragment() {
     }
 
     companion object {
+        lateinit var change_date : TextView
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

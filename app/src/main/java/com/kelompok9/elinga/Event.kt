@@ -6,7 +6,7 @@ import java.util.*
 
 data class Event(
     var name: String? = "",
-    var date: Date? = null,
+    var date: String? = null,
     var time: LocalTime
 )
 
