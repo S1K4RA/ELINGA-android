@@ -14,7 +14,7 @@ class CalendarAdapter(
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.calendar_cell, parent, false)
         val layoutParams = view.layoutParams
-        layoutParams.height = (parent.height * 0.166666666).toInt()
+        layoutParams.height = (parent.height * 0.14).toInt()
         return CalendarViewHolder(view, onItemListener)
     }
 
