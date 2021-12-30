@@ -7,6 +7,11 @@
     android:orientation="vertical"
     android:layout_margin="8dp">
 
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="36dp"
+        android:background="@drawable/logo_elinga"/>
+
     <Button
         android:id="@+id/dndON"
         android:layout_width="match_parent"

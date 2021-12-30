@@ -27,4 +27,46 @@
         android:name="com.kelompok9.elinga.Kalori_interaction"
         android:label="fragment_kalori_interaction"
         tools:layout="@layout/fragment_kalori_interaction" />
+    <fragment
+        android:id="@+id/workoutTitle"
+        android:name="com.kelompok9.elinga.WorkoutTitle"
+        android:label="fragment_workout_title"
+        tools:layout="@layout/fragment_workout_title" >
+        <action
+            android:id="@+id/action_workoutTitle_to_easyWorkout"
+            app:destination="@id/easyWorkout" />
+        <action
+            android:id="@+id/action_workoutTitle_to_mediumWorkout"
+            app:destination="@id/mediumWorkout" />
+        <action
+            android:id="@+id/action_workoutTitle_to_hardWorkout"
+            app:destination="@id/hardWorkout" />
+    </fragment>
+    <fragment
+        android:id="@+id/easyWorkout"
+        android:name="com.kelompok9.elinga.EasyWorkout"
+        android:label="fragment_easy_workout"
+        tools:layout="@layout/fragment_easy_workout" >
+        <action
+            android:id="@+id/action_easyWorkout_to_workoutTitle"
+            app:destination="@id/workoutTitle" />
+    </fragment>
+    <fragment
+        android:id="@+id/hardWorkout"
+        android:name="com.kelompok9.elinga.HardWorkout"
+        android:label="fragment_hard_workout"
+        tools:layout="@layout/fragment_hard_workout" >
+        <action
+            android:id="@+id/action_hardWorkout_to_workoutTitle"
+            app:destination="@id/workoutTitle" />
+    </fragment>
+    <fragment
+        android:id="@+id/mediumWorkout"
+        android:name="com.kelompok9.elinga.MediumWorkout"
+        android:label="fragment_medium_workout"
+        tools:layout="@layout/fragment_medium_workout" >
+        <action
+            android:id="@+id/action_mediumWorkout_to_workoutTitle"
+            app:destination="@id/workoutTitle" />
+    </fragment>
 </navigation>

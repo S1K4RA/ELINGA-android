@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import androidx.navigation.fragment.findNavController
 
 class EasyWorkout : Fragment() {
     override fun onCreateView(
@@ -15,4 +17,12 @@ class EasyWorkout : Fragment() {
         return inflater.inflate(R.layout.fragment_easy_workout, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val _backbtn = view.findViewById<ImageButton>(R.id.backbtn)
+        _backbtn.setOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
 }
