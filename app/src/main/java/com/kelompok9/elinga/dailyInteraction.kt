@@ -55,7 +55,6 @@ class dailyInteraction : Fragment() {
         change_day.text = receiveBundle.getString("hari")
 
         setView(hour_list, arr_event)
-<<<<<<< Updated upstream
 
         var _btnKalori : Button = view.findViewById(R.id.btnKalori)
 
@@ -106,10 +105,6 @@ class dailyInteraction : Fragment() {
                 }
 
         }
-
-=======
-        loaddataDatabase(arr_event, hour_list)
->>>>>>> Stashed changes
     }
 
     private fun setTime(adapter : ArrayList<Event>){
@@ -153,27 +148,6 @@ class dailyInteraction : Fragment() {
 
     companion object {
         lateinit var change_date : TextView
-    }
-
-    companion object {
-        lateinit var change_date : TextView
         var caloryInit : BMR? = null
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment dailyInteraction.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            dailyInteraction().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
