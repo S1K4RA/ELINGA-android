@@ -16,7 +16,6 @@
         android:paddingVertical="10dp"
         android:text="ADD ACTIVITY"
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +42,8 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:background="@null"
-            android:text="Title"
+            android:hint="Title"
+            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -88,6 +88,7 @@
 
         <Button
             android:id="@+id/btnNewAcCancel"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="5dp"
@@ -98,6 +99,7 @@
 
         <Button
             android:id="@+id/btnNewAcNext"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="16dp"

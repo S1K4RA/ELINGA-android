@@ -189,7 +189,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="5dp"
             android:layout_weight="5"
-            android:backgroundTint="@color/transparent"
+            android:backgroundTint="@color/sakura"
             android:text="Cancel"
             app:cornerRadius="50dp" />
 
@@ -200,7 +200,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="16dp"
             android:layout_weight="5"
-            android:backgroundTint="@color/sakura"
+            android:backgroundTint="@color/more_green"
             android:text="SUBMIT"
             app:cornerRadius="50dp" />
     </LinearLayout>

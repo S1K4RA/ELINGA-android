@@ -9,8 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.ktx.toObject
 import java.time.LocalTime
 
@@ -104,6 +106,22 @@ class dailyInteraction : Fragment() {
                     }
                 }
 
+        }
+
+        var _btnAdd : FloatingActionButton = view.findViewById(R.id.btnAddDailyActivity)
+        _btnAdd.setOnClickListener {
+            val Hour_Interact_Frag = hourInteraction()
+            // Hour_Interact_Frag.arguments = receiveBundle
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(
+                    R.id.fragmentContainerView,
+                    Hour_Interact_Frag,
+                    dailyInteraction::class.java.simpleName
+                )
+                addToBackStack(null)
+                commit()
+            }
         }
     }
 

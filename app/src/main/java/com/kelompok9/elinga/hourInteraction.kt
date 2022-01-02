@@ -49,7 +49,7 @@ class hourInteraction : Fragment() {
         var _typespinner : Spinner = view.findViewById(R.id.typeSpinner)
         _typespinner.onItemSelectedListener
 
-        _typespinner.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.fragment_hour_interaction, activityType) as SpinnerAdapter
+        _typespinner.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.array_adapter_spinner_textview, activityType) as SpinnerAdapter
         _typespinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")

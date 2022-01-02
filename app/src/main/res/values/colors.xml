@@ -10,5 +10,6 @@
     <color name="gray_background">#f2f4f4</color>
     <color name="dark_gray">#4d4d4d</color>
     <color name="more_green">#77dd76</color>
-
+    <color name="blue">#a4e6f4</color>
+    <color name="maroon">#c47179</color>
 </resources>
