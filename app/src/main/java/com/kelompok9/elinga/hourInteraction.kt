@@ -72,12 +72,24 @@ class hourInteraction : Fragment() {
                 Toast.makeText(activity,"Please Select Activity",Toast.LENGTH_SHORT).show()
             } else { // pindah fragment
                 //selain video conference masukno ke database
+                 receivedate = dailyInteraction.change_date.text.toString()
+                 title_activity = view.findViewById(R.id.title_activity)
+                 selected_time  = LocalTime.of(_timepicker.hour, _timepicker.minute)
                     if (type == "Video Conference") {
                         println("THIS DONT GO TO DATABASE YET, MAKE NEW FRAGMENT")
+
+                        val mFragmentManager = parentFragmentManager
+                        val details_videoconference = video_conference_Details()
+                        mFragmentManager.beginTransaction().apply {
+                            replace(
+                                R.id.fragmentContainerView,
+                                details_videoconference,
+                                dailyInteraction::class.java.simpleName
+                            )
+                            addToBackStack(null)
+                            commit()
+                        }
                     } else {
-                        var receivedate = dailyInteraction.change_date.text.toString()
-                        var title_activity: EditText = view.findViewById(R.id.title_activity)
-                        var selected_time : LocalTime = LocalTime.of(_timepicker.hour, _timepicker.minute)
                         MainActivity.db.collection(receivedate).document(title_activity.text.toString())
                             .set(Event(title_activity.text.toString(), selected_time, type = type))
                     }
@@ -94,6 +106,9 @@ class hourInteraction : Fragment() {
 
     companion object {
         var activityType = arrayOf<String>("Video Conference", "Workout", "Sleep", "Alarm")
+        lateinit var receivedate : String
+        lateinit var title_activity : EditText
+        lateinit var selected_time : LocalTime
 
         /**
          * Use this factory method to create a new instance of
