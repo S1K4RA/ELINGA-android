@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.FragmentManager
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,6 +57,13 @@ class video_conference_Details : Fragment() {
                     )
                 )
         }
+
+        var _btnReturn : Button = view.findViewById(R.id.btnCancelConfer)
+        _btnReturn.setOnClickListener {
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
+        }
+
     }
 
     companion object {
