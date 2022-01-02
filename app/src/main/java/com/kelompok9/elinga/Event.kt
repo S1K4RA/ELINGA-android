@@ -9,7 +9,6 @@ data class Event(
     var time: LocalTime = LocalTime.now(),
     var link: String? = "",
     var type: String? = "",
-    var bro_what:String? = "random stuff please"
 )
 
 

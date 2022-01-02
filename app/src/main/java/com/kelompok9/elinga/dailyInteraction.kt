@@ -2,6 +2,8 @@ package com.kelompok9.elinga
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
@@ -25,7 +28,7 @@ data class BMR (
 
 )
 
-class dailyInteraction : Fragment() {
+class dailyInteraction : Fragment(), HourAdapter.Navigate {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,7 +56,7 @@ class dailyInteraction : Fragment() {
         change_day.text = receiveBundle?.getString("hari")
 
         //setView(hour_list, arr_event)
-        loaddataDatabase(arr_event, hour_list)
+        loaddataDatabase(arr_event, hour_list, view)
 
         var _btnKalori : MaterialButton = view.findViewById(R.id.btnKalori)
         _btnKalori.setOnClickListener {
@@ -159,15 +162,15 @@ class dailyInteraction : Fragment() {
         }
     }
 
-    private fun setView(rv: RecyclerView, adapter: ArrayList<Event>) {
-        //setTime(adapter)
-        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 1)
-        rv.layoutManager = layoutManager
-        rv.adapter = HourAdapter(adapter)
+   //private fun setView(rv: RecyclerView, adapter: ArrayList<Event>) {
+   //    //setTime(adapter)
+   //    val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 1)
+   //    rv.layoutManager = layoutManager
+   //    rv.adapter = HourAdapter(adapter, view)
 
-    }
+   //}
 
-    private fun loaddataDatabase(adapter: ArrayList<Event>, rv: RecyclerView) {
+    private fun loaddataDatabase(adapter: ArrayList<Event>, rv: RecyclerView, view : View) {
         var date = change_date.text.toString()
         MainActivity.db.collection(date).get().addOnSuccessListener {
             for (event in it) {
@@ -186,9 +189,17 @@ class dailyInteraction : Fragment() {
             }
             Log.d("From database", adapter.toString())
             rv.layoutManager = GridLayoutManager(context, 1)
-            rv.adapter = HourAdapter(adapter)
+            rv.adapter = HourAdapter(adapter, view)
         }
     }
+
+    override fun onRecyclerViewItemClicked(location: Event) {
+        println("why")
+        val eIntent = Intent(Intent.ACTION_VIEW)
+        eIntent.setData(Uri.parse("google.com"))
+        startActivity(eIntent)
+    }
+
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var change_date: TextView
