@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
@@ -56,6 +57,12 @@ class KaloriDailyAdd : Fragment() {
 
             _inputCal.text.toString().toInt()
 
+        }
+
+        var _btnCalCancel : Button = view.findViewById(R.id.btnAddCalCancel)
+        _btnCalCancel.setOnClickListener {
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
         }
 
     }

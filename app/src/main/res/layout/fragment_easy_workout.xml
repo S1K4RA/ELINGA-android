@@ -22,7 +22,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/item_background_black"
         android:paddingVertical="10dp"
-        android:text="@string/beginner"
+        android:text="BEGINNER"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -35,7 +35,7 @@
         android:background="@drawable/item_background"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingVertical="24dp">
+        android:paddingVertical="16dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_10_x_3_rep"
+                    android:text="10 x 3_rep"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -67,7 +67,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_1_min_rest_rep"
+                    android:text="1 min rest / rep"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>

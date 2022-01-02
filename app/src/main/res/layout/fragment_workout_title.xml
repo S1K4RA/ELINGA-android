@@ -6,107 +6,90 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WorkoutTitle"
     android:orientation="vertical"
-    android:gravity="center">
+    android:padding="24dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/backbtn"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="start"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/ic_baseline_arrow_back_24"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="16dp"
-        android:layout_margin="8dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
+        android:gravity="center"
+        android:text="WELCOME TO WORKOUT SESSION"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
-        <ImageButton
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
             android:id="@+id/ez_workout"
-            android:layout_width="270dp"
-            android:layout_height="180dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/ez_workout"
-            android:scaleType="fitCenter"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#BF212121"
-            android:letterSpacing="0.1"
-            android:text=" BEGINNER "
-            android:textAlignment="viewEnd"
-            android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:text="BEGINNER"
+            android:textSize="20sp"
+            android:letterSpacing="0.15"
+            android:minHeight="48dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/sakura_light"
+            android:backgroundTint="@color/black"
+            app:cornerRadius="50dp"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="viewStart"
+            android:paddingStart="36sp"
+            android:tooltipText="If you are a starter with workout"
+            android:drawableEnd="@drawable/ic_baseline_info_24"
+            tools:ignore="RtlSymmetry" />
 
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="16dp"
-        android:layout_margin="8dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
-
-        <ImageButton
+        <Button
             android:id="@+id/med_workout"
-            android:layout_width="270dp"
-            android:layout_height="180dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/med_workout"
-            android:scaleType="fitCenter"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#BF212121"
-            android:letterSpacing="0.1"
-            android:text=" INTERMEDIATE "
-            android:textAlignment="viewEnd"
-            android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:text="INTERMEDIATE"
+            android:textSize="20sp"
+            android:letterSpacing="0.15"
+            android:minHeight="48dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/sakura_light"
+            android:backgroundTint="@color/black"
+            app:cornerRadius="50dp"
+            android:layout_marginBottom="16dp"
+            android:textAlignment="viewStart"
+            android:paddingStart="36sp"
+            android:tooltipText="If you are already knew with workout"
+            android:drawableEnd="@drawable/ic_baseline_info_24"
+            tools:ignore="RtlSymmetry"/>
 
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="16dp"
-        android:layout_margin="8dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
-
-        <ImageButton
+        <Button
             android:id="@+id/hard_workout"
-            android:layout_width="270dp"
-            android:layout_height="180dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/hard_workout"
-            android:scaleType="fitCenter"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="#BF212121"
-            android:letterSpacing="0.1"
-            android:text=" ADVANCED "
-            android:textAlignment="viewEnd"
-            android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:text="ADVANCED"
+            android:textSize="20sp"
+            android:letterSpacing="0.15"
+            android:minHeight="48dp"
+            android:paddingVertical="16dp"
+            android:textColor="@color/sakura_light"
+            android:backgroundTint="@color/black"
+            app:cornerRadius="50dp"
+            android:textAlignment="viewStart"
+            android:paddingStart="36sp"
+            android:tooltipText="If you are a bodybuilder"
+            android:drawableEnd="@drawable/ic_baseline_info_24"
+            tools:ignore="RtlSymmetry"/>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 
 </LinearLayout>

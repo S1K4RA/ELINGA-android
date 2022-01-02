@@ -3,9 +3,7 @@ package com.kelompok9.elinga
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import java.util.ArrayList
 
@@ -14,8 +12,8 @@ class HourAdapter (
     private val listEvent : ArrayList<Event>
     ) : RecyclerView.Adapter<HourAdapter.ListViewHolder>() {
         inner class ListViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
-            var _timeTV : TextView = itemView.findViewById(R.id.timeTV)
-            var _events : TextView = itemView.findViewById(R.id.event1)
+            var _timeTV : TextView = itemView.findViewById(R.id.eventTime)
+            var _events : TextView = itemView.findViewById(R.id.eventTitle)
             //var _btnAdd : ImageButton = itemView.findViewById(R.id.btnAdd)
         }
 

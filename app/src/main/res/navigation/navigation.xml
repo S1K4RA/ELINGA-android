@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_dailyInteraction_to_kalori_interaction"
             app:destination="@id/kalori_interaction" />
+        <action
+            android:id="@+id/action_dailyInteraction_to_workoutTitle"
+            app:destination="@id/workoutTitle" />
     </fragment>
     <fragment
         android:id="@+id/kalori_interaction"
@@ -47,26 +50,17 @@
         android:name="com.kelompok9.elinga.EasyWorkout"
         android:label="fragment_easy_workout"
         tools:layout="@layout/fragment_easy_workout" >
-        <action
-            android:id="@+id/action_easyWorkout_to_workoutTitle"
-            app:destination="@id/workoutTitle" />
     </fragment>
     <fragment
         android:id="@+id/hardWorkout"
         android:name="com.kelompok9.elinga.HardWorkout"
         android:label="fragment_hard_workout"
         tools:layout="@layout/fragment_hard_workout" >
-        <action
-            android:id="@+id/action_hardWorkout_to_workoutTitle"
-            app:destination="@id/workoutTitle" />
     </fragment>
     <fragment
         android:id="@+id/mediumWorkout"
         android:name="com.kelompok9.elinga.MediumWorkout"
         android:label="fragment_medium_workout"
         tools:layout="@layout/fragment_medium_workout" >
-        <action
-            android:id="@+id/action_mediumWorkout_to_workoutTitle"
-            app:destination="@id/workoutTitle" />
     </fragment>
 </navigation>

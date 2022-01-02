@@ -62,13 +62,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="20 x 5 rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="16sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2 min rest / rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -90,7 +91,8 @@
                     android:layout_height="wrap_content"
                     android:text="rest for 4 min"
                     android:layout_gravity="center"
-                    android:textColor="@color/sakura"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_marginEnd="8dp" />
 
@@ -124,13 +126,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="8 x 5 rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
                         android:textSize="16sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1 min rest / rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
                         android:textSize="16sp"/>
                 </LinearLayout>
             </LinearLayout>
@@ -151,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:text="rest for 3 min"
                     android:layout_gravity="center"
-                    android:textColor="@color/sakura"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:layout_marginEnd="8dp" />
 
@@ -186,13 +189,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="15 x 3 rep"
-                        android:textColor="@color/sakura"
-                        android:textSize="16sp" />
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30 sec rest / rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -213,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:text="rest for 2 min 30 sec"
                     android:layout_gravity="center"
-                    android:textColor="@color/sakura"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:layout_marginEnd="8dp" />
 
@@ -248,13 +252,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="20 x 3 rep"
-                        android:textColor="@color/sakura"
-                        android:textSize="16sp" />
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2 min rest / rep"
-                        android:textColor="@color/sakura"
+                        android:textColor="@color/black"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -275,7 +280,7 @@
                     android:layout_height="wrap_content"
                     android:text="rest for 4 min"
                     android:layout_gravity="center"
-                    android:textColor="@color/sakura"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:layout_marginEnd="8dp" />
 
@@ -306,13 +311,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20 x 4 rep"
-                    android:textColor="@color/sakura"
-                    android:textSize="16sp" />
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3 min rest / rep"
-                    android:textColor="@color/sakura"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
