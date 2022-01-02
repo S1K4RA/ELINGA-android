@@ -160,7 +160,7 @@ class dailyInteraction : Fragment() {
     }
 
     private fun setView(rv: RecyclerView, adapter: ArrayList<Event>) {
-        setTime(adapter)
+        //setTime(adapter)
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 1)
         rv.layoutManager = layoutManager
         rv.adapter = HourAdapter(adapter)
