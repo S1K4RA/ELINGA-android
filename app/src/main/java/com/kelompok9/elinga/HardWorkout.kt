@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.button.MaterialButton
 
 class HardWorkout : Fragment() {
     override fun onCreateView(
@@ -15,9 +16,7 @@ class HardWorkout : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_hard_workout, container, false)
 
-        view.findViewById<ImageButton>(R.id.backbtn).setOnClickListener {
-            findNavController().navigateUp()
-        }
+        view.findViewById<MaterialButton>(R.id.backbtn).setOnClickListener {   }
 
         return view
     }

@@ -41,7 +41,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/daily_date" />
+        app:layout_constraintTop_toBottomOf="@id/daily_date"
+        tools:ignore="NotSibling" />
 
     <LinearLayout
         android:id="@+id/ll_x"
