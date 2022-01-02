@@ -25,12 +25,15 @@ import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.*
 import com.kelompok9.elinga.CalendarUtils.selectedDate
+import org.w3c.dom.Text
 
 @SuppressLint("ObsoleteSdkInt")
 class Home : Fragment(), CalendarAdapter.OnItemListener {
-    private lateinit var monthYearText: TextView
-    private lateinit var calendarRecyclerView: RecyclerView
+    companion object {
+        lateinit var monthYearText : TextView
+    }
 
+    private lateinit var calendarRecyclerView: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -40,10 +43,13 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         super.onViewCreated(view, savedInstanceState)
         // Init
         calendarRecyclerView = view.findViewById(R.id.calendarRecyclerView)
-        monthYearText = view.findViewById(R.id.monthYearTV)
+        monthYearText= view.findViewById(R.id.monthYearTV)
 
         selectedDate = LocalDate.now()
-        setMonthView()
+        monthYearText.text = null
+
+        Log.e(TAG,monthYearText.text.toString() + " aaaaaaaaa")
+        setMonthView(view)
 
 
         val _dndON : Button = view.findViewById(R.id.dndON)
@@ -67,8 +73,10 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         }
 
     }
-    private fun setMonthView() {
+    private fun setMonthView(view: View) {
+        monthYearText.text = ""
         monthYearText.text = monthYearFromDate(selectedDate)
+        Log.e(TAG,monthYearText.text.toString())
         val daysInMonth = daysInMonthArray(selectedDate)
         val calendarAdapter = CalendarAdapter(daysInMonth, this)
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(context, 7)
@@ -98,14 +106,14 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         return date!!.format(formatter)
     }
 
-    fun previousMonthAction(view: View?) {
+    fun previousMonthAction(view: View) {
         selectedDate = selectedDate!!.minusMonths(1)
-        setMonthView()
+        setMonthView(view)
     }
 
-    fun nextMonthAction(view: View?) {
+    fun nextMonthAction(view: View) {
         selectedDate = selectedDate!!.plusMonths(1)
-        setMonthView()
+        setMonthView(view)
     }
 
     override fun onItemClick(position: Int, dayText: String?,view: View) {

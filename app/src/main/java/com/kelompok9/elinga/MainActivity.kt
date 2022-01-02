@@ -36,14 +36,6 @@ class MainActivity : AppCompatActivity() {
             manager.createNotificationChannel(channel)
         }
 
-        val mFragmentManager = supportFragmentManager
-        val mfHome = Home()
-
-        mFragmentManager.findFragmentByTag(Home::class.java.simpleName)
-        mFragmentManager
-            .beginTransaction()
-            .add(R.id.fragmentContainerView, mfHome, Home::class.java.simpleName)
-            .commit()
     }
 
 }
