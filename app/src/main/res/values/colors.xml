@@ -8,4 +8,7 @@
     <color name="calendar_number">#424A56</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gray_background">#f2f4f4</color>
+    <color name="dark_gray">#4d4d4d</color>
+    <color name="more_green">#77dd76</color>
+
 </resources>

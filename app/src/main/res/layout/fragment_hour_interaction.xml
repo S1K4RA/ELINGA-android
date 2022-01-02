@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/gray_background"
+    android:background="@color/gray_background"
     tools:context=".hourInteraction">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/sakura"
+        android:layout_margin="16dp"
+        android:background="@drawable/item_background_black"
         android:paddingVertical="10dp"
         android:text="ADD ACTIVITY"
         android:textAlignment="center"
@@ -21,12 +22,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textColor="@color/gray_background" />
+        tools:textColor="@color/white" />
 
     <LinearLayout
+        android:id="@+id/ll_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/calendar_border"
+        android:layout_margin="16dp"
+        android:background="@drawable/item_background"
         android:orientation="vertical"
         android:paddingHorizontal="24dp"
         android:paddingBottom="24dp"
@@ -48,10 +51,11 @@
             android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start"
+            android:text="Time"
             android:textSize="18sp" />
 
         <TimePicker
+            android:id="@+id/NewAcTimePicker"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -61,16 +65,46 @@
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="End"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="18dp"
+            android:text="Activity Type"
             android:textSize="18sp" />
 
-        <TimePicker
-            android:id="@+id/timePicker"
+        <Spinner
+            android:id="@+id/typeSpinner"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:timePickerMode="spinner" />
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_1">
+
+        <Button
+            android:id="@+id/btnNewAcCancel"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/sakura"
+            android:text="Cancel"
+            app:cornerRadius="50dp" />
+
+        <Button
+            android:id="@+id/btnNewAcNext"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/more_green"
+            android:text="Next"
+            app:cornerRadius="50dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

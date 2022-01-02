@@ -83,6 +83,12 @@ class Kalori_interaction : Fragment() {
             fm.popBackStack()
         }
 
+        var _btnCancel : Button = view.findViewById(R.id.btnCancelKalori)
+        _btnCancel.setOnClickListener {
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
+        }
+
 
 
     }
