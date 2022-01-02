@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/border.xml" value="0.13796296296296295" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/calendar_border.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/daily_item_background.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/date_background.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/day_background.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/ic_elinga_logo.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/item_background.xml" value="0.159375" />
@@ -17,6 +20,10 @@
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_easy_workout.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hour_interaction.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hard_workout.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hour_interaction.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_info_developer.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_kalori_daily_add.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_kalori_interaction.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_logo_screen.xml" value="0.27447916666666666" />
