@@ -75,6 +75,10 @@ class hourInteraction : Fragment() {
                  receivedate = dailyInteraction.change_date.text.toString()
                  title_activity = view.findViewById(R.id.title_activity)
                  selected_time  = LocalTime.of(_timepicker.hour, _timepicker.minute)
+                if (title_activity.text.toString() == "") {
+                    Toast.makeText(context, "Please enter a title", Toast.LENGTH_SHORT).show()
+                }
+                else {
                     if (type == "Video Conference") {
                         println("THIS DONT GO TO DATABASE YET, MAKE NEW FRAGMENT")
 
@@ -90,9 +94,11 @@ class hourInteraction : Fragment() {
                             commit()
                         }
                     } else {
-                        MainActivity.db.collection(receivedate).document(title_activity.text.toString())
+                        MainActivity.db.collection(receivedate)
+                            .document(title_activity.text.toString())
                             .set(Event(title_activity.text.toString(), selected_time, type = type))
                     }
+                }
             }
         }
 
