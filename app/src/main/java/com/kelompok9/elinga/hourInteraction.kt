@@ -97,6 +97,9 @@ class hourInteraction : Fragment() {
                         MainActivity.db.collection(receivedate)
                             .document(title_activity.text.toString())
                             .set(Event(title_activity.text.toString(), selected_time, type = type))
+
+                        val fm: FragmentManager = requireActivity().supportFragmentManager
+                        fm.popBackStack()
                     }
                 }
             }

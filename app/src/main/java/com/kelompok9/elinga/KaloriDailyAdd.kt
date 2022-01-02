@@ -13,6 +13,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
+import java.time.LocalTime
 import kotlin.properties.Delegates
 
 // TODO: Rename parameter arguments, choose names that match
@@ -26,7 +27,8 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 data class CaloriesToday (
-    var NeededToday: UInt
+    var NeededToday: UInt,
+    var time : LocalTime = LocalTime.now()
     )
 
 
@@ -88,7 +90,7 @@ class KaloriDailyAdd : Fragment() {
             var Input = _inputCal.text.toString().toUInt() + total
             MainActivity.db.collection(dailyInteraction.change_date.text.toString())
                 .document("Calories Needed Today")
-                .set(CaloriesToday(Input))
+                .set(CaloriesToday(Input,LocalTime.now()))
 
             val fm: FragmentManager = requireActivity().supportFragmentManager
             fm.popBackStack()

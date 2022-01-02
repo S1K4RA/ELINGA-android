@@ -56,6 +56,9 @@ class video_conference_Details : Fragment() {
                         type = "Video Conference"
                     )
                 )
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
+            fm.popBackStack()
         }
 
         var _btnReturn : Button = view.findViewById(R.id.btnCancelConfer)

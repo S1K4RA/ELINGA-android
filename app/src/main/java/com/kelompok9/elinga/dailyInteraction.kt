@@ -45,13 +45,12 @@ class dailyInteraction : Fragment() {
         val hour_list: RecyclerView = requireView().findViewById(R.id.dailyInteractionRV)
         val arr_event = arrayListOf<Event>()
 
-        Log.d("bundle", receiveBundle!!.get("date").toString())
         val disp_atas =
-            receiveBundle.getString("tanggal") + " " + receiveBundle.getString("bulan") + " " + receiveBundle.getString(
+            receiveBundle?.getString("tanggal") + " " + receiveBundle?.getString("bulan") + " " + receiveBundle?.getString(
                 "tahun"
             )
         change_date.text = disp_atas
-        change_day.text = receiveBundle.getString("hari")
+        change_day.text = receiveBundle?.getString("hari")
 
         //setView(hour_list, arr_event)
         loaddataDatabase(arr_event, hour_list)
@@ -174,12 +173,16 @@ class dailyInteraction : Fragment() {
             for (event in it) {
                 var db_time = event.data.get("time") as Map<*, *>
                 var timelocal = LocalTime.of(db_time.get("hour").toString().toInt(), db_time.get("minute").toString().toInt())
+
                 val data = Event(
                     event.data.get("name").toString(),
                     timelocal,
                     event.data.get("link").toString(),
                     event.data.get("type").toString())
-                adapter.add(data)
+                println(data)
+                if (data.name != "null" || data.type != "null") {
+                    adapter.add(data)
+                }
             }
             Log.d("From database", adapter.toString())
             rv.layoutManager = GridLayoutManager(context, 1)
