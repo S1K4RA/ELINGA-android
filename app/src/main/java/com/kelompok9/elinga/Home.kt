@@ -18,10 +18,13 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.FloatingWindow
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
@@ -55,8 +58,8 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
         setMonthView(view)
 
 
-        val _dndON : Button = view.findViewById(R.id.dndON)
-        val _dndOFF : Button = view.findViewById(R.id.dndOFF)
+       /* val _dndON : Button = view.findViewById(R.id.dndON)
+        val _dndOFF : Button = view.findViewById(R.id.dndOFF)*/
         val _btnPrev : ImageButton = view.findViewById(R.id.btnPrev)
         val _btnNext : ImageButton = view.findViewById(R.id.btnNext)
 
@@ -68,11 +71,24 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
             nextMonthAction(view)
         }
 
-        _dndON.setOnClickListener {
+       /* _dndON.setOnClickListener {
             turnon_DND()
         }
         _dndOFF.setOnClickListener {
             turnoff_DND()
+        }*/
+
+        var _btnInfo : FloatingActionButton = view.findViewById(R.id.btnInfo)
+
+        _btnInfo.setOnClickListener {
+            val info_Frag = InfoDeveloper()
+            //Navigation.findNavController(view).navigate(R.id.dailyInteraction)
+            val mFragmentManager = parentFragmentManager
+            mFragmentManager.beginTransaction().apply {
+                replace(R.id.fragmentContainerView, info_Frag, dailyInteraction::class.java.simpleName)
+                addToBackStack(null)
+                commit()
+            }
         }
 
     }
