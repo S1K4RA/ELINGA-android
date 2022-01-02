@@ -1,12 +1,14 @@
 package com.kelompok9.elinga
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.FragmentManager
+import java.time.LocalTime
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -69,7 +71,16 @@ class hourInteraction : Fragment() {
             if (type.isNullOrBlank()) {
                 Toast.makeText(activity,"Please Select Activity",Toast.LENGTH_SHORT).show()
             } else { // pindah fragment
-
+                //selain video conference masukno ke database
+                    if (type == "Video Conference") {
+                        println("THIS DONT GO TO DATABASE YET, MAKE NEW FRAGMENT")
+                    } else {
+                        var receivedate = dailyInteraction.change_date.text.toString()
+                        var title_activity: EditText = view.findViewById(R.id.title_activity)
+                        var selected_time : LocalTime = LocalTime.of(_timepicker.hour, _timepicker.minute)
+                        MainActivity.db.collection(receivedate).document(title_activity.text.toString())
+                            .set(Event(title_activity.text.toString(), selected_time, type = type))
+                    }
             }
         }
 

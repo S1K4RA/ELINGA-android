@@ -6,8 +6,10 @@ import java.util.*
 
 data class Event(
     var name: String? = "",
-    var date: String? = null,
-    var time: LocalTime
+    var time: LocalTime = LocalTime.now(),
+    var link: String? = "",
+    var type: String? = "",
+    var bro_what:String? = "random stuff please"
 )
 
 

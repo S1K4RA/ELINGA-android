@@ -111,6 +111,10 @@ class dailyInteraction : Fragment() {
         var _btnAdd : FloatingActionButton = view.findViewById(R.id.btnAddDailyActivity)
         _btnAdd.setOnClickListener {
             val Hour_Interact_Frag = hourInteraction()
+            val date_tosend : Bundle = Bundle()
+            date_tosend.putString("date" ,change_date.toString())
+
+            Hour_Interact_Frag.arguments = date_tosend
             // Hour_Interact_Frag.arguments = receiveBundle
             val mFragmentManager = parentFragmentManager
             mFragmentManager.beginTransaction().apply {
