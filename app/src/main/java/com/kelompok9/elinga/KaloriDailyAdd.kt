@@ -1,6 +1,10 @@
 package com.kelompok9.elinga
 
+import android.app.UiAutomation
+import android.content.ContentValues.TAG
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,11 +25,17 @@ private const val ARG_PARAM2 = "param2"
  * Use the [KaloriDailyAdd.newInstance] factory method to
  * create an instance of this fragment.
  */
+data class CaloriesToday (
+    var NeededToday: UInt
+    )
+
+
 class KaloriDailyAdd : Fragment() {
+
+    var CaloriesNeededToday : UInt? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -46,16 +56,42 @@ class KaloriDailyAdd : Fragment() {
 
         var _btnCalSubmit : Button = view.findViewById(R.id.btnaddCalSubmit)
 
-        if (receiveBundle != null) {
-            _calBMR.text = receiveBundle.getString("value")
-            _calNeed.text = (total?.minus(receiveBundle.getString("value").toString().toUInt())).toString()
-        }
+        _calBMR.text = receiveBundle?.getInt("value").toString()
 
+        var total : UInt = 0u
+        MainActivity.db.collection(dailyInteraction.change_date.text.toString())
+            .document("Calories Needed Today").get()
+            .addOnSuccessListener { document ->
+                if (document.get("neededToday-pVg5ArA") != null) {
+                    var data = CaloriesToday(
+                        document.get("neededToday-pVg5ArA").toString().toUInt()
+                    )
+                    total = data.NeededToday
+                    var butuhbrp = receiveBundle?.getInt("value").toString().toUInt()
+                    if (butuhbrp.minus(total) < butuhbrp) {
+                    _calNeed.text = butuhbrp.minus(total).toString()
+                    } else {
+                        _calNeed.text = "Too Much Calories"
+                    }
+                } else {
+                    _calNeed.text = receiveBundle?.getInt("value").toString()
+                }
+            }.addOnFailureListener {
+                _calNeed.text = "NULL"
+            }
+
+        _calBMR.text = receiveBundle?.getInt("value").toString()
 
         _btnCalSubmit.setOnClickListener {
             var _inputCal : EditText = view.findViewById(R.id.addCalInput)
 
-            _inputCal.text.toString().toInt()
+            var Input = _inputCal.text.toString().toUInt() + total
+            MainActivity.db.collection(dailyInteraction.change_date.text.toString())
+                .document("Calories Needed Today")
+                .set(CaloriesToday(Input))
+
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
 
         }
 
@@ -68,7 +104,7 @@ class KaloriDailyAdd : Fragment() {
     }
 
     companion object {
-        var total : UByte? = null
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

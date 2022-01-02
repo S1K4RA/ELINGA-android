@@ -81,10 +81,10 @@ class dailyInteraction : Fragment() {
                 .addOnCompleteListener {
                     if (caloryInit != null) { // kalo gk kosong
                         val Kalori_DailyAdd_Frag = KaloriDailyAdd()
-
+                        //Log.e(TAG, caloryInit!!.value.toString())
                         var dataBundle = Bundle()
                         dataBundle.putInt("value", caloryInit!!.value)
-                        Kalori_DailyAdd_Frag.arguments = receiveBundle
+                        Kalori_DailyAdd_Frag.arguments = dataBundle
                         val mFragmentManager = parentFragmentManager
                         mFragmentManager.beginTransaction().apply {
                             replace(
