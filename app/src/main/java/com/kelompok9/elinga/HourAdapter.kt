@@ -16,6 +16,7 @@ class HourAdapter (
             var _timeTV : TextView = itemView.findViewById(R.id.eventTime)
             var _events : TextView = itemView.findViewById(R.id.eventTitle)
             var _btnDelete : Button = itemView.findViewById(R.id.btnDelete)
+            var _eventType : TextView = itemView.findViewById(R.id.eventType)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
@@ -28,8 +29,12 @@ class HourAdapter (
 
         holder._timeTV.text = event.time.toString()
         holder._events.text = event.name
+        holder._eventType.text = event.type
         holder._btnDelete.setOnClickListener {
             listEvent.removeAt(position)
+            MainActivity.db.collection(dailyInteraction.change_date.text.toString())
+                .document(event.name.toString())
+                .delete()
             notifyDataSetChanged()
         }
         /*if (event.name != "") {

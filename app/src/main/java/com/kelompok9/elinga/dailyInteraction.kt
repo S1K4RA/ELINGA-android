@@ -53,7 +53,8 @@ class dailyInteraction : Fragment() {
         change_date.text = disp_atas
         change_day.text = receiveBundle.getString("hari")
 
-        setView(hour_list, arr_event)
+        //setView(hour_list, arr_event)
+        loaddataDatabase(arr_event, hour_list)
 
         var _btnKalori : MaterialButton = view.findViewById(R.id.btnKalori)
         _btnKalori.setOnClickListener {
@@ -171,15 +172,16 @@ class dailyInteraction : Fragment() {
         var date = change_date.text.toString()
         MainActivity.db.collection(date).get().addOnSuccessListener {
             for (event in it) {
-                for (items in adapter) {
-                    Log.d("Database", items.time.hour.toString())
-                    var db_time = event.data.get("time") as Map<*, *>
-                    Log.d("Database", db_time.get("hour").toString())
-                    if (db_time.get("hour").toString() == items.time.hour.toString()) {
-                        items.name = event.data.get("name").toString()
-                    }
-                }
+                var db_time = event.data.get("time") as Map<*, *>
+                var timelocal = LocalTime.of(db_time.get("hour").toString().toInt(), db_time.get("minute").toString().toInt())
+                val data = Event(
+                    event.data.get("name").toString(),
+                    timelocal,
+                    event.data.get("link").toString(),
+                    event.data.get("type").toString())
+                adapter.add(data)
             }
+            Log.d("From database", adapter.toString())
             rv.layoutManager = GridLayoutManager(context, 1)
             rv.adapter = HourAdapter(adapter)
         }
