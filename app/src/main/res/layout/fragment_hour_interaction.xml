@@ -21,7 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textColor="@color/white" />
+        tools:textColor="@android:color/white" />
 
     <LinearLayout
         android:id="@+id/ll_1"

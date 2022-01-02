@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.time.LocalTime
 
@@ -54,8 +55,7 @@ class dailyInteraction : Fragment() {
 
         setView(hour_list, arr_event)
 
-        val _btnKalori: Button = view.findViewById(R.id.btnKalori)
-
+        var _btnKalori : MaterialButton = view.findViewById(R.id.btnKalori)
         _btnKalori.setOnClickListener {
             var calory = MainActivity.db.collection("BMR").document("Calories_Data").get()
                 .addOnSuccessListener { document ->
@@ -125,7 +125,8 @@ class dailyInteraction : Fragment() {
                 )
             }
         }
-        val _btnWO = view.findViewById<Button>(R.id.btnWorkout)
+
+        val _btnWO = view.findViewById<MaterialButton>(R.id.btnWorkout)
         _btnWO.setOnClickListener {
             val WO_frag = WorkoutTitle()
             val mFragmentManager = parentFragmentManager

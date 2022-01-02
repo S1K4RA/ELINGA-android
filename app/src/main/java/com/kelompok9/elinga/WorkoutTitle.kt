@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -24,7 +25,7 @@ class WorkoutTitle : Fragment() {
         val _ezbtn = view.findViewById<Button>(R.id.ez_workout)
         val _medbtn = view.findViewById<Button>(R.id.med_workout)
         val _hardbtn = view.findViewById<Button>(R.id.hard_workout)
-        val _backbtn = view.findViewById<MaterialButton>(R.id.backbtn)
+        val _backbtn = view.findViewById<ImageButton>(R.id.backbtn)
 
         _ezbtn.setOnClickListener {
             val ez_Frag = EasyWorkout()
@@ -68,6 +69,9 @@ class WorkoutTitle : Fragment() {
             }
         }
 
-        _backbtn.setOnClickListener {   }
+        _backbtn.setOnClickListener {
+            val fm: FragmentManager = requireActivity().supportFragmentManager
+            fm.popBackStack()
+        }
     }
 }

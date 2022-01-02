@@ -57,8 +57,8 @@ class hourInteraction : Fragment() {
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 type = parent?.getItemAtPosition(position).toString()
-                Toast.makeText(activity,type, Toast.LENGTH_SHORT).show()
-                println(type)
+                /*Toast.makeText(activity,type, Toast.LENGTH_SHORT).show()
+                println(type)*/
             }
         }
 
