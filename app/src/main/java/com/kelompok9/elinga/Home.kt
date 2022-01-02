@@ -1,7 +1,9 @@
 package com.kelompok9.elinga
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Build
@@ -16,6 +18,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -180,19 +183,37 @@ class Home : Fragment(), CalendarAdapter.OnItemListener {
     }
 
     private fun turnoff_DND() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (MainActivity.notificationManager.isNotificationPolicyAccessGranted) {
-                //turn on dnd
-                MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL)
-            } else {
-                //request permission
-                Toast.makeText(context, "Please give us access", Toast.LENGTH_SHORT).show()
-                val dndIntent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
-                startActivity(dndIntent)
-            }
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        //    if (MainActivity.notificationManager.isNotificationPolicyAccessGranted) {
+        //        //turn on dnd
+        //        MainActivity.notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL)
+        //    } else {
+        //        //request permission
+        //        Toast.makeText(context, "Please give us access", Toast.LENGTH_SHORT).show()
+        //        val dndIntent = Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)
+        //        startActivity(dndIntent)
+        //    }
+//
+        //} else {
+        //    Toast.makeText(context, "Your device does not support DND", Toast.LENGTH_SHORT).show()
+        //}
+        Toast.makeText(context, "Wait for it", Toast.LENGTH_SHORT).show()
 
-        } else {
-            Toast.makeText(context, "Your device does not support DND", Toast.LENGTH_SHORT).show()
-        }
+        val calendar : Calendar = Calendar.getInstance()
+
+        calendar.set(
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH),
+            23,
+            0,
+            0
+        )
+
+        val delayedintent = Intent(context, Broadcast::class.java)
+        delayedintent.putExtra("Action", "Send notification 1")
+        val pendingIntent = PendingIntent.getBroadcast(context, 0, delayedintent, 0)
+
+        MainActivity.alarmManager.set(AlarmManager.RTC, calendar.timeInMillis, pendingIntent)
     }
 }

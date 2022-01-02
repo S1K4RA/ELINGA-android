@@ -2,6 +2,7 @@ package com.kelompok9.elinga
 
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         @SuppressLint("StaticFieldLeak")
         lateinit var db : FirebaseFirestore
         lateinit var notificationManager: NotificationManager
+        lateinit var alarmManager: AlarmManager
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             )
             manager.createNotificationChannel(channel)
         }
+
+        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
 
     }
 
