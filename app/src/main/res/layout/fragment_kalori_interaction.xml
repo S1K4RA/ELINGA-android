@@ -61,7 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -69,7 +70,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="*Between 15 - 80" />
+                android:text="*Between 15 - 80"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <TextView
@@ -123,14 +125,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Cm" />
+                android:text="cm"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <TextView
@@ -154,14 +158,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
-                android:inputType="number|numberDecimal" />
+                android:inputType="number|numberDecimal"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Kg" />
+                android:text="kg"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -183,7 +189,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="5dp"
             android:layout_weight="5"
-            android:backgroundTint="@color/sakura"
+            android:backgroundTint="@color/transparent"
             android:text="Cancel"
             app:cornerRadius="50dp" />
 
@@ -194,7 +200,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="16dp"
             android:layout_weight="5"
-            android:backgroundTint="@color/more_green"
+            android:backgroundTint="@color/sakura"
             android:text="SUBMIT"
             app:cornerRadius="50dp" />
     </LinearLayout>

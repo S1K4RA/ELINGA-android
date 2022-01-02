@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/gray_background"
     android:orientation="vertical"
-    tools:context=".KaloriDailyAdd">
+    tools:context=".KaloriDailyAdd"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/sakura"
+        android:background="@drawable/item_background_sakura"
         android:paddingVertical="10dp"
         android:text="KALORIMETER"
         android:textAlignment="center"
@@ -22,7 +23,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:textColor="@color/gray_background" />
+        tools:ignore="TextContrastCheck"
+        tools:textColor="@color/gray_background"
+        android:letterSpacing="0.1"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -56,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="1600"
+        android:hint="1600"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1600"
+        android:hint="1600"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +109,9 @@
             android:id="@+id/addCalInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
@@ -116,6 +123,8 @@
         android:backgroundTint="@color/sakura_light"
         android:text="SUBMIT"
         app:cornerRadius="50dp"
+        android:textStyle="bold"
+        android:letterSpacing="0.15"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
