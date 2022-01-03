@@ -21,7 +21,7 @@ class Broadcast : BroadcastReceiver() {
             }
             val message = "Notification send with alarm manager"
             val builder = NotificationCompat.Builder(context,"Elinga Notification");
-            builder.setContentTitle("NotificationTitle")
+            builder.setContentTitle("Activity Remainder")
             builder.setContentText(message)
             builder.setAutoCancel(true)
             builder.setSmallIcon(R.drawable.ic_launcher_background)
@@ -40,7 +40,7 @@ class Broadcast : BroadcastReceiver() {
             }
             val message = "Notification send with second alarm manager "
             val builder = NotificationCompat.Builder(context,"Elinga Notification");
-            builder.setContentTitle("NotificationTitle number 2")
+            builder.setContentTitle("Alarm")
             builder.setContentText(message)
             builder.setAutoCancel(true)
             builder.setSmallIcon(R.drawable.ic_launcher_background)
