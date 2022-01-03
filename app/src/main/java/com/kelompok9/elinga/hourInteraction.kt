@@ -46,7 +46,7 @@ class hourInteraction : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var _timepicker : TimePicker = view.findViewById(R.id.NewAcTimePicker)
-        _timepicker.setIs24HourView(false)
+        _timepicker.setIs24HourView(true)
 
         var _typespinner : Spinner = view.findViewById(R.id.typeSpinner)
         _typespinner.onItemSelectedListener
