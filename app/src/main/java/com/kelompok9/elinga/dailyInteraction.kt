@@ -62,7 +62,8 @@ class dailyInteraction : Fragment(), HourAdapter.Navigate {
         _btnKalori.setOnClickListener {
             var calory = MainActivity.db.collection("BMR").document("Calories_Data").get()
                 .addOnSuccessListener { document ->
-                    if (document != null) {
+                    println(document.data)
+                    if (document.data != null) {
                         Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                         var data = BMR(
                             document.data?.get("age").toString().toInt(),
