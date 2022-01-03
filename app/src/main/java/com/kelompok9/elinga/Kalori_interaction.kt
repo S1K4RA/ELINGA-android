@@ -75,6 +75,9 @@ class Kalori_interaction : Fragment() {
                 } else if (_isFemale.isChecked) {
                     _boolIsMale = false
                     value = ((10 * weight) + (6.25 * height) - (5 * age) - 161).toFloat()
+                } else {
+                    _boolIsMale = true
+                    value = ((10 * weight) + (6.25 * height) - (5 * age) + 5).toFloat()
                 }
                 var valu = Math.round(value)
 
