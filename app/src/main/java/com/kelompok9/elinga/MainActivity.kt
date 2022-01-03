@@ -5,10 +5,13 @@ import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -38,8 +41,16 @@ class MainActivity : AppCompatActivity() {
             manager.createNotificationChannel(channel)
         }
 
-        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        //Notification stuff here
 
+
+        alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+        val calendar  = Calendar.getInstance()
+        val intent = Intent(this, Broadcast::class.java)
+        intent.putExtra("Action", "Send notification 1")
+        val pendingIntent =  PendingIntent.getBroadcast(this, 0, intent, 0)
+        calendar.set(Calendar.HOUR_OF_DAY, 0)
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent)
     }
 
 }
