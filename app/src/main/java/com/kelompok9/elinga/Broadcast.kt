@@ -26,11 +26,6 @@ class Broadcast : BroadcastReceiver() {
 
         if (intent?.action == "get db items") {
             //alarm buat tiap hari
-            val intent = Intent(context, MainActivity::class.java)
-            val pendingIntenttoApp = TaskStackBuilder.create(context).run {
-                addNextIntentWithParentStack(intent)
-                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-            }
             //val message = "Notification send with alarm manager"
             //val builder = NotificationCompat.Builder(context,"Elinga Notification");
             //builder.setContentTitle("Activity Remainder")
