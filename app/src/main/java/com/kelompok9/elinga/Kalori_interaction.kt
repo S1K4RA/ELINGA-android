@@ -55,32 +55,43 @@ class Kalori_interaction : Fragment() {
 
             var _boolIsMale : Boolean = false
 
-            var age = _age.text.toString().toInt()
-            var height = _height.text.toString().toInt()
-            var weight = _weight.text.toString().toInt()
-            var value : Float = 0F
+            if (_age.text.isEmpty()) {
+                Toast.makeText(context,"Please Fill In Your Age",Toast.LENGTH_SHORT).show()
+            } else if (_age.text.toString().toInt() < 15 || _age.text.toString().toInt() > 80) {
+                Toast.makeText(context,"Please Fill In Your Correct Age",Toast.LENGTH_SHORT).show()
+            } else if (_height.text.isEmpty()) {
+                Toast.makeText(context,"Please Fill In Your Height",Toast.LENGTH_SHORT).show()
+            } else if (_weight.text.isEmpty()) {
+                Toast.makeText(context,"Please Fill In Your Weight",Toast.LENGTH_SHORT).show()
+            } else {
+                var age = _age.text.toString().toInt()
+                var height = _height.text.toString().toInt()
+                var weight = _weight.text.toString().toInt()
+                var value : Float = 0F
 
-            if (_isMale.isChecked) {
-                _boolIsMale = true
-                value = ((10 * weight) + (6.25 * height) - (5 * age) + 5).toFloat()
-            } else if (_isFemale.isChecked) {
-                _boolIsMale = false
-                value = ((10 * weight) + (6.25 * height) - (5 * age) - 161).toFloat()
+                if (_isMale.isChecked) {
+                    _boolIsMale = true
+                    value = ((10 * weight) + (6.25 * height) - (5 * age) + 5).toFloat()
+                } else if (_isFemale.isChecked) {
+                    _boolIsMale = false
+                    value = ((10 * weight) + (6.25 * height) - (5 * age) - 161).toFloat()
+                }
+                var valu = Math.round(value)
+
+                var data = BMR(age, _boolIsMale, height, weight, valu)
+                MainActivity.db.collection("BMR").document("Calories_Data").set(data)
+                    .addOnSuccessListener {
+                        Toast.makeText(this.requireContext(), "Data Added", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this.requireContext(), "Failed to Add", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+
+                val fm: FragmentManager = requireActivity().supportFragmentManager
+                fm.popBackStack()
             }
-
-            var valu = Math.round(value)
-
-            var data = BMR(age,_boolIsMale,height,weight,valu)
-            MainActivity.db.collection("BMR").document("Calories_Data").set(data)
-                .addOnSuccessListener {
-                    Toast.makeText(this.requireContext(),"Data Added", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this.requireContext(), "Failed to Add", Toast.LENGTH_SHORT).show()
-                }
-
-            val fm: FragmentManager = requireActivity().supportFragmentManager
-            fm.popBackStack()
         }
 
         var _btnCancel : Button = view.findViewById(R.id.btnCancelKalori)
