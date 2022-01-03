@@ -5,6 +5,9 @@
       <map>
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/border.xml" value="0.13796296296296295" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/calendar_border.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/daily_item_background.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/date_background.xml" value="0.290625" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/day_background.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/ic_elinga_logo.xml" value="0.290625" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/item_background.xml" value="0.159375" />
@@ -12,16 +15,26 @@
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/drawable/layout_border.xml" value="0.17314814814814813" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/activity_day_view.xml" value="0.27447916666666666" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/array_adapter_spinner_textview.xml" value="0.4" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/calendar_cell.xml" value="0.27447916666666666" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_daily_interaction.xml" value="0.4" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_easy_workout.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hour_interaction.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_kalori_daily_add.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hard_workout.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_hour_interaction.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_info_developer.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_kalori_daily_add.xml" value="0.4" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_kalori_interaction.xml" value="0.264" />
         <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_logo_screen.xml" value="0.27447916666666666" />
-        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/hour_cell.xml" value="0.22644927536231885" />
-        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/log_item.xml" value="0.14010416666666667" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_medium_workout.xml" value="0.2056159420289855" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_video_conference__details.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/fragment_workout_title.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/hour_cell.xml" value="0.4" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/layout/log_item.xml" value="0.264" />
+        <entry key="..\:/Proyek Android/ELINGA/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2869791666666667" />
         <entry key="..\:/SEM 5/PABA/ELINGA-android/app/src/main/res/layout/activity_main.xml" value="0.24818840579710144" />
         <entry key="..\:/SEM 5/PABA/ELINGA-android/app/src/main/res/layout/fragment_easy_workout.xml" value="0.264" />
         <entry key="..\:/SEM 5/PABA/ELINGA-android/app/src/main/res/layout/fragment_hard_workout.xml" value="0.264" />
@@ -39,8 +52,9 @@
         <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/fragment_kalori_interaction.xml" value="0.536" />
         <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/fragment_video_conference__details.xml" value="0.264" />
         <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/fragment_workout_title.xml" value="0.10729166666666666" />
+        <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/fragment_daily_interaction.xml" value="0.176" />
+        <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/fragment_home.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/hour_cell.xml" value="0.4" />
-        <entry key="..\:/Users/windows10/AndroidStudioProjects/ELINGA-android/app/src/main/res/layout/log_item.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>
