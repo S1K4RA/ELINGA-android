@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="9"
                 android:inputType="numberDecimal"
+                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -92,13 +93,15 @@
                 android:id="@+id/male_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Male" />
+                android:text="Male"
+                android:buttonTint="@color/black"/>
 
             <RadioButton
                 android:id="@+id/female_select"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Female" />
+                android:text="Female"
+                android:buttonTint="@color/black"/>
 
         </RadioGroup>
 
@@ -125,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:inputType="numberDecimal"
+                android:textColor="@color/black"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
@@ -157,6 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
+                android:textColor="@color/black"
                 android:inputType="number|numberDecimal"
                 tools:ignore="SpeakableTextPresentCheck" />
 
